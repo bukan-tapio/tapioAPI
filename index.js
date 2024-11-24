@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebase-config.js";
 import { TODO } from "./schema-API.js";
 
@@ -30,6 +30,20 @@ app.post("/todos", async (req, res) => {
     res.send("documentaion has ben saved!");
   } catch (e) {
     console.error("Error adding document: ", e);
+  }
+});
+
+app.get("/todos", async (req, res) => {
+  try {
+    const data_collection_ref = data_collection;
+    const querySnapshot = await getDocs(data_collection_ref);
+    const todo = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    res.json(todo);
+  } catch (e) {
+    console.error("Error getting document: ", e);
   }
 });
 
