@@ -4,7 +4,7 @@ import { Storage } from "@google-cloud/storage";
 import { PROJECT_ID, KEYFILENAME, BUCKET_NAME } from "./uploadFile-config.js";
 
 const app = express();
-const port = parseInt(process.env.PORT) || 3000;
+const port = parseInt(process.env.PORT) || 8080;
 
 // Configure multer for file upload
 const upload = multer({
