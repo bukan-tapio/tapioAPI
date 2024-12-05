@@ -1,0 +1,18 @@
+{
+  "name": "uploadfile",
+  "version": "1.0.0",
+  "main": "storage-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google-cloud/storage": "^7.14.0",
+    "express": "^4.21.1",
+    "firebase": "^11.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "type": "module"
+}
