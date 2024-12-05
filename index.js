@@ -1,10 +1,14 @@
 import express from "express";
 import multer from "multer";
 import { Storage } from "@google-cloud/storage";
+import bodyParser from "body-parser";
 import { PROJECT_ID, KEYFILENAME, BUCKET_NAME } from "./uploadFile-config.js";
 
 const app = express();
 const PORT = parseInt(process.env.PORT) || 8080;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Configure multer for file upload
 const upload = multer({
