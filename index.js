@@ -4,7 +4,7 @@ import { Storage } from "@google-cloud/storage";
 import { PROJECT_ID, KEYFILENAME, BUCKET_NAME } from "./uploadFile-config.js";
 
 const app = express();
-const PORT = parseInt(process.env.PORT) || 8080;
+const port = parseInt(process.env.PORT) || 8080;
 
 // Configure multer for file upload
 const upload = multer({
@@ -92,6 +92,6 @@ app.get("/", (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
