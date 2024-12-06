@@ -36,7 +36,9 @@ const authenticateToken = (req, res, next) => {
 };
 
 app.get("/", (req, res) => {
-  res.send("Selamat datang di API saya");
+  res.send({
+    message: "welcome to my api",
+  });
 });
 
 app.post("/signup", async (req, res) => {
@@ -115,7 +117,7 @@ app.get("/user", authenticateToken, (req, res) => {
   });
 });
 
-const PORT = parseInt(process.env.PORT) || 8080;
-app.listen(PORT, () => {
-  console.log("server is running on port: " + PORT);
+const port = parseInt(process.env.PORT) || 8080;
+app.listen(port, () => {
+  console.log(`use this port : ${port}`);
 });
